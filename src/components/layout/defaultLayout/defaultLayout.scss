@@ -1,0 +1,14 @@
+.layout-wrapper {
+  display: flex;
+  flex-direction: column; // quay theo chiều dọc
+  align-items: center; // căn giữa
+}
+
+.layout-container {
+  width: var(--default-layout-width);
+  display: flex;
+}
+
+.layout-content {
+  flex: 1;
+}
