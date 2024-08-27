@@ -1,30 +1,25 @@
-import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faCircleQuestion,
-  faCircleXmark,
   faCoins,
   faEarthAsia,
   faEllipsisVertical,
   faGear,
   faKeyboard,
   faSignOut,
-  faSpinner,
   faUser,
 } from '@fortawesome/free-solid-svg-icons';
 import clsx from 'clsx';
 import Tippy from '@tippyjs/react';
-import HeadlessTippy from '@tippyjs/react/headless';
 import 'tippy.js/dist/tippy.css';
 
 import images from '~/assets/images';
-import { Wrapper as PopperWrapper } from '~/components/popper';
 import './style.scss';
-import AccountItem from '~/components/accountItem';
 import Button from '~/components/button';
 import Menu from '~/components/popper/menu';
-import { InboxIcon, MessageIcon, SearchIcon, UploadIcon } from '~/components/icons';
+import { InboxIcon, MessageIcon, UploadIcon } from '~/components/icons';
 import Image from '~/components/image';
+import Search from '../search';
 
 const MENU_ITEMS = [
   {
@@ -83,14 +78,6 @@ const userMenu = [
 ];
 
 function Header() {
-  const [searchResult, setSearchResult] = useState([]);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setSearchResult([]);
-    }, 0);
-  }, []);
-
   const handleMenuChange = (menuItem) => {
     switch (menuItem.type) {
       case 'language':
@@ -106,33 +93,8 @@ function Header() {
     <header className={clsx('header-wrapper')}>
       <div className={clsx('header-inner')}>
         <img src={images.logo} alt="TikTok" />
-        <HeadlessTippy
-          interactive
-          visible={searchResult.length > 0}
-          render={(attrs) => (
-            <div className={clsx('header-search-result')} tabIndex="-1" {...attrs}>
-              <PopperWrapper>
-                <h3 className={clsx('header-search-title')}>Account</h3>
-                <AccountItem />
-                <AccountItem />
-                <AccountItem />
-                <AccountItem />
-              </PopperWrapper>
-            </div>
-          )}
-        >
-          <div className={clsx('header-search')}>
-            <input placeholder="Search accounts and videos" spellCheck={false} />
-            <button className={clsx('header-clear')}>
-              <FontAwesomeIcon icon={faCircleXmark} />
-            </button>
-            <FontAwesomeIcon className={clsx('header-loading')} icon={faSpinner} />
 
-            <button className={clsx('header-search-btn')}>
-              <SearchIcon />
-            </button>
-          </div>
-        </HeadlessTippy>
+        <Search />
 
         <div className={clsx('header-actions')}>
           {currentUser ? (
