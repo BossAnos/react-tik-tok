@@ -7,6 +7,7 @@ import clsx from 'clsx';
 import AccountItem from '~/components/accountItem';
 import { SearchIcon } from '~/components/icons';
 import { useDebounce } from '~/hook';
+import { SearchAllUsersApi } from '~/services/search';
 import './search.scss';
 
 function Search() {
@@ -20,15 +21,10 @@ function Search() {
   const inputRef = useRef();
 
   const handleSearchApi = async () => {
-    await fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(debounced)}&type=less`)
-      .then((response) => response.json())
-      .then((res) => {
-        setSearchResult(res.data);
-        setLoading(false);
-      })
-      .catch(() => {
-        setLoading(false);
-      });
+    SearchAllUsersApi(debounced).then((res) => {
+      setSearchResult(res.data.data);
+      setLoading(false);
+    });
   };
 
   useEffect(() => {
