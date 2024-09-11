@@ -46,45 +46,55 @@ function Search() {
     setShowResult(false);
   };
 
+  const handleChange = (e) => {
+    const searchValue = e.target.value;
+    if (!searchValue.startsWith(' ')) {
+      setSearchValue(searchValue);
+    }
+  };
+
   return (
     <>
-      <HeadlessTippy
-        interactive
-        visible={showResult && searchResult.length > 0}
-        render={(attrs) => (
-          <div className={clsx('header-search-result')} tabIndex="-1" {...attrs}>
-            <PopperWrapper>
-              <h3 className={clsx('header-search-title')}>Account</h3>
-              {searchResult.map((result) => (
-                <AccountItem key={result.id} data={result} />
-              ))}
-            </PopperWrapper>
-          </div>
-        )}
-        onClickOutside={handleHideResult}
-      >
-        <div className={clsx('header-search')}>
-          <input
-            ref={inputRef}
-            value={searchValue}
-            placeholder="Search accounts and videos"
-            spellCheck={false}
-            onChange={(e) => setSearchValue(e.target.value)}
-            onFocus={() => setShowResult(true)}
-          />
-          {!!searchValue && !loading && (
-            <button className={clsx('header-clear')} onClick={handleClear}>
-              <FontAwesomeIcon icon={faCircleXmark} />
-            </button>
+      {/* Using a wrapper <div> tag around the reference element solves this by creating a new parentNode context. */}
+      <div>
+        <HeadlessTippy
+          interactive
+          visible={showResult && searchResult.length > 0}
+          render={(attrs) => (
+            <div className={clsx('header-search-result')} tabIndex="-1" {...attrs}>
+              <PopperWrapper>
+                <h3 className={clsx('header-search-title')}>Account</h3>
+                {searchResult.map((result) => (
+                  <AccountItem key={result.id} data={result} />
+                ))}
+              </PopperWrapper>
+            </div>
           )}
+          onClickOutside={handleHideResult}
+        >
+          <div className={clsx('header-search')}>
+            <input
+              ref={inputRef}
+              value={searchValue}
+              placeholder="Search accounts and videos"
+              spellCheck={false}
+              onChange={handleChange}
+              onFocus={() => setShowResult(true)}
+            />
+            {!!searchValue && !loading && (
+              <button className={clsx('header-clear')} onClick={handleClear}>
+                <FontAwesomeIcon icon={faCircleXmark} />
+              </button>
+            )}
 
-          {loading && <FontAwesomeIcon className={clsx('header-loading')} icon={faSpinner} />}
+            {loading && <FontAwesomeIcon className={clsx('header-loading')} icon={faSpinner} />}
 
-          <button className={clsx('header-search-btn')}>
-            <SearchIcon />
-          </button>
-        </div>
-      </HeadlessTippy>
+            <button className={clsx('header-search-btn')} onMouseDown={(e) => e.preventDefault()}>
+              <SearchIcon />
+            </button>
+          </div>
+        </HeadlessTippy>
+      </div>
     </>
   );
 }

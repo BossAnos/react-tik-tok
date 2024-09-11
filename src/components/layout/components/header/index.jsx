@@ -11,6 +11,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import clsx from 'clsx';
 import Tippy from '@tippyjs/react';
+import { Link } from 'react-router-dom';
 import 'tippy.js/dist/tippy.css';
 
 import images from '~/assets/images';
@@ -19,6 +20,7 @@ import Button from '~/components/button';
 import Menu from '~/components/popper/menu';
 import { InboxIcon, MessageIcon, UploadIcon } from '~/components/icons';
 import Image from '~/components/image';
+import routesConfig from '~/utils/config';
 import Search from '../search';
 
 const MENU_ITEMS = [
@@ -92,7 +94,9 @@ function Header() {
   return (
     <header className={clsx('header-wrapper')}>
       <div className={clsx('header-inner')}>
-        <img src={images.logo} alt="TikTok" />
+        <Link to={routesConfig.home} className={clsx('header-logo-link')}>
+          <img src={images.logo} alt="TikTok" />
+        </Link>
 
         <Search />
 

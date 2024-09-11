@@ -1,8 +1,8 @@
 import axios from "axios";
 
-// const API_URL = process.env.REACT_APP_BACKEND_URL;
+const API_URL = process.env.REACT_APP_BACKEND_URL;  // https://tiktok.fullstack.edu.vn/api/
 const axiosOptions = {
-  baseURL: "https://tiktok.fullstack.edu.vn/api/",
+  baseURL: API_URL,
   headers: {
     "Content-Type": "application/json; charset=utf-8",
   },
