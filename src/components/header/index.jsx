@@ -20,7 +20,7 @@ import Button from '~/components/button';
 import Menu from '~/components/popper/menu';
 import { InboxIcon, MessageIcon, UploadIcon } from '~/components/icons';
 import Image from '~/components/image';
-import routesConfig from '~/utils/config';
+import config from '~/config';
 import Search from '../search';
 
 const MENU_ITEMS = [
@@ -94,7 +94,7 @@ function Header() {
   return (
     <header className={clsx('header-wrapper')}>
       <div className={clsx('header-inner')}>
-        <Link to={routesConfig.home} className={clsx('header-logo-link')}>
+        <Link to={config.routes.home} className={clsx('header-logo-link')}>
           <img src={images.logo} alt="TikTok" />
         </Link>
 

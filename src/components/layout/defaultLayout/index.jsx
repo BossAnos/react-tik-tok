@@ -1,4 +1,4 @@
-import Header from '~/components/layout/components/header';
+import Header from '~/components/header';
 import Sidebar from './sidebar';
 import clsx from 'clsx';
 import './defaultLayout.scss';

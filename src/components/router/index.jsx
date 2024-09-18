@@ -1,6 +1,6 @@
 import { lazy } from 'react';
 import { HeaderOnly } from '~/components/layout';
-import routesConfig from '~/utils/config';
+import config from '~/config';
 
 const Home = lazy(() => import('~/pages/home'));
 const Following = lazy(() => import('~/pages/following'));
@@ -10,11 +10,11 @@ const Search = lazy(() => import('~/pages/search'));
 
 // public routes
 const publicRoutes = [
-  { path: routesConfig.home, component: Home },
-  { path: routesConfig.following, component: Following },
-  { path: routesConfig.profile, component: Profile },
-  { path: routesConfig.upload, component: Upload, layout: HeaderOnly },
-  { path: routesConfig.search, component: Search, layout: null },
+  { path: config.routes.home, component: Home },
+  { path: config.routes.following, component: Following },
+  { path: config.routes.profile, component: Profile },
+  { path: config.routes.upload, component: Upload, layout: HeaderOnly },
+  { path: config.routes.search, component: Search, layout: null },
 ];
 
 // private routes
