@@ -1,5 +1,6 @@
 import { forwardRef, useState } from 'react';
 import clsx from 'clsx';
+import PropTypes from 'prop-types';
 import images from '~/assets/images';
 import './image.scss';
 
@@ -12,7 +13,7 @@ const Image = forwardRef(({ className, src, alt, fallback: customFallback = imag
 
   return (
     <img
-      className={clsx("image-wrapper", className)}
+      className={clsx('image-wrapper', className)}
       ref={ref}
       src={src || fallback}
       alt={alt}
@@ -21,5 +22,12 @@ const Image = forwardRef(({ className, src, alt, fallback: customFallback = imag
     />
   );
 });
+
+Image.propTypes = {
+  src: PropTypes.string,
+  alt: PropTypes.string,
+  className: PropTypes.string,
+  fallback: PropTypes.string,
+};
 
 export default Image;

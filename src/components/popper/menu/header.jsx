@@ -1,6 +1,7 @@
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
+import PropTypes from 'prop-types';
 
 function Header({ title, onBack }) {
   return (
@@ -12,5 +13,10 @@ function Header({ title, onBack }) {
     </header>
   );
 }
+
+Header.prototype = {
+  title: PropTypes.string.isRequired,
+  onBack: PropTypes.func.isRequired,
+};
 
 export default Header;

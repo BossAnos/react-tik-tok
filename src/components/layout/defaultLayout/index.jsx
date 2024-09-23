@@ -1,6 +1,7 @@
+import clsx from 'clsx';
+import PropTypes from 'prop-types';
 import Header from '~/components/header';
 import Sidebar from './sidebar';
-import clsx from 'clsx';
 import './defaultLayout.scss';
 
 function DefaultLayout({ children }) {
@@ -14,5 +15,9 @@ function DefaultLayout({ children }) {
     </div>
   );
 }
+
+DefaultLayout.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 export default DefaultLayout;
