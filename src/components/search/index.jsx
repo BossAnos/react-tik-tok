@@ -13,28 +13,28 @@ import './search.scss';
 function Search() {
   const [searchValue, setSearchValue] = useState('');
   const [searchResult, setSearchResult] = useState([]);
-  const [showResult, setShowResult] = useState(true);
+  const [showResult, setShowResult] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const debounced = useDebounce(searchValue, 500);
+  const debouncedValue = useDebounce(searchValue, 500);
 
   const inputRef = useRef();
 
   const handleSearchApi = async () => {
-    SearchAllUsersApi(debounced).then((res) => {
+    SearchAllUsersApi(debouncedValue).then((res) => {
       setSearchResult(res.data.data);
       setLoading(false);
     });
   };
 
   useEffect(() => {
-    if (!debounced.trim()) {
+    if (!debouncedValue.trim()) {
       setSearchResult([]);
       return;
     }
     setLoading(true);
     handleSearchApi();
-  }, [debounced]);
+  }, [debouncedValue]);
 
   const handleClear = () => {
     setSearchValue('');
