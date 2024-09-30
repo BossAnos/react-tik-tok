@@ -3,7 +3,7 @@ import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import clsx from 'clsx';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import Image from '~/components/image';
+import Image from '~/components/image/image';
 import './account-item.scss';
 
 function AccountItem({ data }) {

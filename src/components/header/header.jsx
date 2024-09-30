@@ -15,13 +15,13 @@ import { Link } from 'react-router-dom';
 import 'tippy.js/dist/tippy.css';
 
 import images from '~/assets/images';
-import './style.scss';
-import Button from '~/components/button';
-import Menu from '~/components/popper/menu';
+import Button from '~/components/button/button';
+import Menu from '~/components/popper/menu/menu';
 import { InboxIcon, MessageIcon, UploadIcon } from '~/components/icons';
-import Image from '~/components/image';
+import Image from '~/components/image/image';
 import config from '~/config';
-import Search from '../search';
+import Search from '../search/search';
+import './style.scss';
 
 const MENU_ITEMS = [
   {
@@ -95,7 +95,7 @@ function Header() {
     <header className={clsx('header-wrapper')}>
       <div className={clsx('header-inner')}>
         <Link to={config.routes.home} className={clsx('header-logo-link')}>
-          <img src={images.logo} alt="TikTok" />
+          <Image src={images.logo} alt="TikTok" />
         </Link>
 
         <Search />
@@ -131,7 +131,7 @@ function Header() {
             {currentUser ? (
               <Image
                 className={clsx('user-avatar')}
-                src="https://p16-sign-sg.tiktokcdn.com/aweme/720x720/tos-alisg-avt-0068/dc461dc3c4b4267d8c11ae6879bf6d25.jpeg?lk3s=a5d48078&nonce=49853&refresh_token=abc905368a2989887715fec73ab07600&x-expires=1724256000&x-signature=Xx60v75R%2B2%2BdbgfESfg32FSXoQE%3D&shp=a5d48078&shcp=81f88b70"
+                src="https://p16-sign-sg.tiktokcdn.com/aweme/720x720/tos-alisg-avt-0068/dc461dc3c4b4267d8c11ae6879bf6d25.jpeg?lk3s=a5d48078&nonce=37374&refresh_token=0b6456873bc4ad21b3774ea8f78897fd&x-expires=1727280000&x-signature=0n29AGtbzKE17GyLM67OEQHT41s%3D&shp=a5d48078&shcp=81f88b70"
                 alt="Nguyen Thanh Hung"
               />
             ) : (

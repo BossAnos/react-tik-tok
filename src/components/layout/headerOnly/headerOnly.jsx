@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import Header from '~/components/header';
+import Header from '~/components/header/header';
 
 function HeaderOnly({ children }) {
   return (

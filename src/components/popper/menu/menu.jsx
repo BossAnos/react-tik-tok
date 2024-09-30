@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import { Wrapper as PopperWrapper } from '~/components/popper';
 import MenuItem from './menuItem';
-import Header from './header';
+import HeaderMenu from './headerMenu';
 import './menu.scss';
 
 const defaultFn = () => {};
@@ -39,7 +39,7 @@ function Menu({ children, items = [], hideOnClick = false, onchange = defaultFn 
   const renderResult = (attrs) => {
     <div className={clsx('menu-list')} tabIndex="-1" {...attrs}>
       <PopperWrapper className={clsx('menu-popper')}>
-        {history.length > 1 && <Header title={current.title} onBack={handleBack} />}
+        {history.length > 1 && <HeaderMenu title={current.title} onBack={handleBack} />}
         <div className={clsx('menu-body')}>{renderItems()}</div>
       </PopperWrapper>
     </div>;

@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import HeadlessTippy from '@tippyjs/react/headless';
 import { Wrapper as PopperWrapper } from '~/components/popper';
 import clsx from 'clsx';
-import AccountItem from '~/components/accountItem';
+import AccountItem from '~/components/accountItem/accountItem';
 import { SearchIcon } from '~/components/icons';
 import { useDebounce } from '~/hook';
 import { SearchAllUsersApi } from '~/services/search';

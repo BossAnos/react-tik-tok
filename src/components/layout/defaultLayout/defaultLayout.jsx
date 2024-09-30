@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import Header from '~/components/header';
-import Sidebar from './sidebar';
+import Header from '~/components/header/header';
+import Sidebar from '../../sidebar/sidebar';
 import './defaultLayout.scss';
 
 function DefaultLayout({ children }) {

@@ -1,0 +1,53 @@
+.account-preview-wrapper {
+  width: 320px;
+  padding: 20px;
+}
+
+.account-preview-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.account-preview-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.account-preview-follow-btn {
+  padding: 6px 16px;
+}
+
+.account-preview-body {
+  margin-top: 12px;
+  color: #161823;
+}
+
+.account-preview-nickname {
+  font-size: 1.8rem;
+}
+
+.account-preview-check {
+  font-size: 1.4rem;
+  color: #20d5ec;
+  margin-left: 4px;
+}
+
+.account-preview-name {
+  font-size: 1.4rem;
+}
+
+.account-preview-analytics {
+  margin-top: 10px;
+  font-size: 1.8rem;
+}
+
+.account-preview-value ~ .account-preview-value {
+  margin-left: 20px;
+}
+
+.account-preview-label {
+  color: #161823bf;
+}

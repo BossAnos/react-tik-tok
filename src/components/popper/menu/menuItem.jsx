@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import Button from '~/components/button';
+import Button from '~/components/button/button';
 import './menu.scss';
 
 function MenuItem({ data, onClick }) {
